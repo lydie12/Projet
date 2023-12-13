@@ -2,7 +2,7 @@ def link_image(matched_image_names):
     import re
 
     # Pattern regex pour le préfixe à supprimer
-    prefix_pattern = re.compile(r'./data1_image\\[a-zA-Z_-]+\\')
+    prefix_pattern = re.compile(r'./data1_image/[a-zA-Z_-]+/')
 
     # Pattern regex pour capturer la séquence de chiffres
     number_pattern = re.compile(r'(\d+)')
