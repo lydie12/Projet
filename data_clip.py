@@ -63,7 +63,7 @@ def clip_image_text(reference_image_path, image_data, model_id="clip-ViT-B-32-mu
     reference_image_embedding = model.encode([str(reference_image_path)], convert_to_tensor=True)
 
     # Encodage des images dans la base de données
-    image_embeddings = model.encode([str(filepath) for filepath in image_data], batch_size=500, convert_to_tensor=True, show_progress_bar=True)
+    image_embeddings=np.load("precomputed_image_embeddings.npy")
 
     # Calcul de la similarité entre l'image de référence et les autres images
     scores = util.pytorch_cos_sim(reference_image_embedding, image_embeddings).cpu().detach().numpy().flatten()
