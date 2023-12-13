@@ -89,6 +89,7 @@ with st.form("my_form"):
             sorted_indices, scores, matched_images, matched_image_names = clip(prompt['prompt'][0], imagePatche, top_k=10)
         st.write(matched_image_names)
         numbers = link_image(matched_image_names)
+        st.write(numbers)
         df_list = []
         image_base64_list = []
 
