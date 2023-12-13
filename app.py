@@ -87,7 +87,7 @@ with st.form("my_form"):
             prompts = pd.DataFrame({'prompt': [product_line + product_id + product_title + product_description]})
             prompt = cleaning(prompts, 'prompt')
             sorted_indices, scores, matched_images, matched_image_names = clip(prompt['prompt'][0], imagePatche, top_k=10)
-
+        st.write(matched_image_names)
         numbers = link_image(matched_image_names)
         df_list = []
         image_base64_list = []
