@@ -44,18 +44,32 @@ def is_image_empty(image):
     # Check if all pixel values are zero (i.e., the image is empty)
     return np.all(image == 0)
 
+# Définition de la taille de la police pour les éléments spécifiques
+st.markdown(
+    """
+    <style>
+        /* Titre de la section */
+        .streamlit-section st-text-area label {
+            font-size: 3rem !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 with st.form("my_form"):
     st.markdown("<h2 style='font-family: \"Times New Roman\", Times, serif; font-size: 30px;'>Product Details</h2>", unsafe_allow_html=True)
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        #st.markdown("<style>.st-1 {font-family: 'Times New Roman', Times, serif; font-size: 25px;}</style>", unsafe_allow_html=True)
-        product_line = st.selectbox("Catégorie:", ['beaute-hygiene-sante', 'electronique', 'ordinateurs-accessoires-informatique', 'telephone_tablette'])
        
+        product_line = st.selectbox("Catégorie:", ['beaute-hygiene-sante', 'electronique', 'ordinateurs-accessoires-informatique', 'telephone_tablette'])
+          # Utilisez la balise HTML pour le label de la catégorie avec une taille de police personnalisée
+        
     with col2:
         product_id = st.text_input("Modele")
     with col3:
+        
         product_title = st.text_input("Nom du produit")
     with col4:
         product_description = st.text_area("Description")
@@ -76,6 +90,7 @@ with st.form("my_form"):
         else:
             st.warning("Veuillez télécharger une image.")
             user_product_image = None
+    
 
     submitted = st.form_submit_button("Search competitors",type='primary')
 
